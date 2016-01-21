@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ReSizingTextViewPoC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVP-Jf-PWw" userLabel="Keyboard View">
+                                <rect key="frame" x="0.0" y="352" width="600" height="248"/>
+                                <color key="backgroundColor" red="0.2117647231" green="0.60392159219999997" blue="0.95686280729999995" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="jr2-93-9DS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmj-Ao-XxO" userLabel="Text View Container">
+                                <rect key="frame" x="0.0" y="302" width="600" height="50"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-10-9Xa">
+                                        <rect key="frame" x="8" y="8" width="525" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="xGL-7L-3i2"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-yM-Ees">
+                                        <rect key="frame" x="546" y="12" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bfg-10-9Xa" firstAttribute="top" secondItem="pmj-Ao-XxO" secondAttribute="topMargin" id="84a-gp-81a"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hqt-6d-LFr"/>
+                                    <constraint firstItem="bfg-10-9Xa" firstAttribute="leading" secondItem="pmj-Ao-XxO" secondAttribute="leadingMargin" id="QT0-Tb-Fdh"/>
+                                    <constraint firstItem="ALq-yM-Ees" firstAttribute="bottom" secondItem="pmj-Ao-XxO" secondAttribute="bottomMargin" id="b8C-ao-wxs"/>
+                                    <constraint firstItem="ALq-yM-Ees" firstAttribute="trailing" secondItem="pmj-Ao-XxO" secondAttribute="trailingMargin" id="dxC-ID-z2V"/>
+                                    <constraint firstItem="ALq-yM-Ees" firstAttribute="leading" secondItem="bfg-10-9Xa" secondAttribute="trailing" constant="13" id="euf-QR-Rlr"/>
+                                    <constraint firstItem="bfg-10-9Xa" firstAttribute="bottom" secondItem="pmj-Ao-XxO" secondAttribute="bottomMargin" id="xDA-Ne-ddJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eVP-Jf-PWw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EZe-xx-Q07"/>
+                            <constraint firstAttribute="trailing" secondItem="eVP-Jf-PWw" secondAttribute="trailing" id="FcK-ao-rVk"/>
+                            <constraint firstAttribute="trailing" secondItem="pmj-Ao-XxO" secondAttribute="trailing" id="Q7H-LK-349"/>
+                            <constraint firstItem="pmj-Ao-XxO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bfe-4h-432"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eVP-Jf-PWw" secondAttribute="bottom" id="hsT-Uy-HUn"/>
+                            <constraint firstItem="eVP-Jf-PWw" firstAttribute="top" secondItem="pmj-Ao-XxO" secondAttribute="bottom" id="nRa-tL-aNK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pmj-Ao-XxO" secondAttribute="bottom" id="uhh-H0-nt5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uhh-H0-nt5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="keyboardHeightConstraint" destination="jr2-93-9DS" id="sc4-VR-0GP"/>
+                        <outlet property="textView" destination="bfg-10-9Xa" id="fbO-xv-pGk"/>
+                        <outlet property="textViewHeightConstraint" destination="Hqt-6d-LFr" id="dTs-00-pEK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="280" y="306"/>
         </scene>
     </scenes>
 </document>
